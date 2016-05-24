@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="web">
+        <div class="content-container">
+            <div class="row">
+                <div class="col-md-8" style="padding:0px;">
+                  <div class="question-container">
+                    {{ form.media }}
+                    {% if form.errors %}
+                      <div class="row" style="margin-top: 10px;margin-left: -5px;">
+                        <div style="border: 1px #e4e4e4 solid;">
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                <div class="alert alert-error">
+                                    <strong style="color:red;">{{ field.name }} - {{ error|escape }}</strong>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                            <div class="alert alert-error">
+                                <strong style="color:red;">{{ error|escape }}</strong>
+                            </div>
+                        {% endfor %}
+                        </div>
+                      </div>
+                    {% endif %}
+                  </div>
+                  {% if msg %}
+                    <div class="question-container">
+                        <div class="row" style="margin-top: 10px;margin-left: -5px;">
+                          <div style="border: 1px #e4e4e4 solid;">
+                              <div class="alert alert-error">
+                                  <strong style="color:red;">{{ msg }}</strong>
+                              </div>
+                          </div>
+                        </div>
+                    </div>
+                  {% endif %}
+                  <div class="question-container">
+                    <form class="form-horizontal validation-fields" id="institute-form" method="post" action="" enctype="multipart/form-data">
+                      {% csrf_token %}
+                      <div class="" style="padding:0px;margin:0px;">
+                        <div class="input-group">
+                          <label for="id_name" class="col-sm-2 control-label">Item</label>
+                          <div class="col-sm-10">
+                            {{ form.item }}
+                          </div>
+                        </div><br>
+                        <div class="input-group">
+                          <label for="id_desc" class="col-sm-2 control-label">Buyer</label>
+                          <div class="col-sm-10">
+                            {{ form.buyer }}
+                          </div>
+                        </div><br><br>
+                      <div class="form-group">
+                        <div class="col-sm-offset-5 col-sm-10">
+                          <button type="submit" class="btn  btn-submit">Submit</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div><br>
+                </div>
+            </div>
+        <div>
+    </div>
+{% endblock %}
+

@@ -13,7 +13,7 @@ Share web data on whatsapp.
 
 ## Clone Project
 
-    git clone https://github.com/agnihotri/whatsapp_share.git
+    git clone https://github.com/agnihotri7/whatsapp_share.git
 
 ## Virtual Envirnoment and requirements
 

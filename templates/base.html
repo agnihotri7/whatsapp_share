@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>{% block title %}Home{% endblock %}</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <style>
+            .web{
+                font-family:tahoma;
+                font-size:12px;
+                top:10%;border:1px solid #CDCDCD;
+                border-radius:10px;
+                padding:10px;
+                width:90%;
+                margin:auto;
+            }
+            .itemlist{
+                width:100% !important;
+            }
+            .web h2 a{
+                text-decoration:none;
+                color:#444;
+            }
+            .web h2 a:hover{
+                text-decoration:underline;
+                color:#FF0000;
+            }
+            .web p{
+                line-height:20px;
+            }
+            .whatsapp{
+                border: 1px solid #5cbe4a;
+                display: inline-block !important;
+                position: relative;
+                cursor: pointer;
+                text-transform: none;
+                color: #fff;
+                border-radius: 5px;
+                background-color: #5cbe4a;
+                background-repeat: no-repeat;
+                background-position: 5px;
+                line-height: 1.2;
+                text-decoration: none;
+                text-align: left;
+                padding: 10px 10px 10px 10px;
+                letter-spacing: .6px;
+                font-size:16px;
+            }
+        </style>
+        {% block extrahead %}
+        {% endblock %}
+    </head>
+<body>
+    {% block body %}
+        <p>Welcome to whats app share site</p>
+    {% endblock %}
+
+    {% block extrascripts %}
+    {% endblock %}
+</body>
+</html>

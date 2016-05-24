@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block extrahead %}
+    {% load staticfiles %}
+    <style>
+        table, td, th {
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 15px;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.whatsapp').on("click", function(e) {
+                if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+                    console.log("entring...")
+                    var article = $(this).attr("data-text");
+                    var weburl = $(this).attr("data-link");
+                    var whats_app_message = encodeURIComponent(article);
+                    var whatsapp_url = "whatsapp://send?text="+whats_app_message;
+                    window.location.href= whatsapp_url;
+                }else{
+                    alert('you are not using mobile device.');
+                }
+            });
+        });
+    </script>
+
+{% endblock %}
+{% block body %}
+    <div class="web">
+        <div class="web itemlist">
+            <p>Items List :</p>
+            <p style="color:blue;">Total Items = {{ items.count }}</p>
+            <p><a style="color:green;" href="{% url 'whatsapp_share.views.items_create' %}">Create Item</a></p>
+            <a style="color:green;" href="{% url 'whatsapp_share.views.order_create' %}">Create Order</a></br></br>
+        </div>
+            <div class="web itemlist">
+                <div>
+                    <table>
+                      <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Inventory</th>
+                        <th>Share</th>
+                      </tr>
+                    {% for itm in items %}
+                        <tr>
+                            <td>{{ itm.name }}</td>
+                            <td>{{ itm.description }}</td>
+                            <td>{{ itm.price }} RS</td>
+                            <td>{{ itm.inventory }} Itms</td>
+                            <td><a data-text="name = {{ itm.name }}, price = {{ itm.price }}" data-link="" class="whatsapp">Share</a></td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+                </div><br>
+            </div>
+    </div>
+{% endblock %}
+
