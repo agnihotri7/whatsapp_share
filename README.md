@@ -1,7 +1,10 @@
 WhatsAPP Share
 ==================================
+Share website data on WhatsApp.
 
-Share web data on whatsapp.
+One can see items list and can share item details directly on WhatsApp.
+
+On clicking share on whatsapp button item details will be copied on WhatsApp.
 
 # Installation
 
